@@ -49,3 +49,6 @@ create table jan22_tripdata as (select * from may21_tripdata) with no data;
 create table feb22_tripdata as (select * from may21_tripdata) with no data;
 create table mar22_tripdata as (select * from may21_tripdata) with no data;
 create table apr22_tripdata as (select * from may21_tripdata) with no data;
+
+```TSQL
+
