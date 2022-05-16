@@ -51,4 +51,116 @@ create table mar22_tripdata as (select * from may21_tripdata) with no data;
 create table apr22_tripdata as (select * from may21_tripdata) with no data;
 
 ```TSQL
+-- Importing data to the tables created 
+
+COPY may21_tripdata
+FROM '/Users/dilyswoo/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
+DELIMITER ',' 
+CSV HEADER; 
+
+-- Creating a new table to merge all the monthly data into one table 
+
+CREATE TABLE all_trips
+(
+    ride_id character varying,
+    rideable_type character varying,
+    started_at timestamp without time zone,
+    ended_at timestamp without time zone,
+    start_station_name character varying COLLATE pg_catalog."default",
+    start_station_id character varying COLLATE pg_catalog."default",
+    end_station_name character varying COLLATE pg_catalog."default",
+    end_station_id character varying COLLATE pg_catalog."default",
+    start_lat double precision,
+    start_lng double precision,
+    end_lat double precision,
+    end_lng double precision,
+    member_casual character varying COLLATE pg_catalog."default"
+)
+
+-- combine data into one table 
+INSERT INTO all_trips (
+	SELECT *
+	FROM may21_tripdata
+	
+	UNION ALL 
+	
+	SELECT *
+	from jun21_tripdata
+	
+	UNION ALL 
+	
+	SELECT *
+	from jul21_tripdata
+	
+	UNION ALL 
+	
+	SELECT *
+	from aug21_tripdata
+	
+	UNION ALL 
+	
+	SELECT *
+	from sep21_tripdata
+	
+	UNION ALL 
+	
+	SELECT *
+	from oct21_tripdata
+	
+	UNION ALL 
+	
+	SELECT *
+	from nov21_tripdata
+	
+	UNION ALL 
+	
+	SELECT *
+	from dec21_tripdata
+	
+	UNION ALL 
+	
+	SELECT *
+	from jan22_tripdata
+	UNION ALL 
+	
+	SELECT *
+	from feb22_tripdata
+	
+	UNION ALL 
+	
+	SELECT *
+	from mar22_tripdata
+	
+	UNION ALL 
+	
+	SELECT *
+	from apr22_tripdata
+	)
+	
+-- adding a new column to calculate the ride length in minutes
+ALTER TABLE all_trips 
+ADD ride_length int
+
+UPDATE all_trips
+SET ride_length = DATE_PART('minute', ended_at - started_at)
+
+-- extracting the day from when journey is started
+ALTER TABLE all_trips
+ADD day_of_week varchar
+
+UPDATE all_trips
+SET day_of_week = TO_CHAR(started_at, 'Day')
+
+select *
+from all_trips
+limit 5
+
+-- cleaning up data with NULL values
+DELETE FROM all_trips
+WHERE ride_id IS NULL OR
+start_station_name IS NULL OR
+member_casual IS NULL OR
+ride_length IS NULL OR
+ride_length = 0
+
 
