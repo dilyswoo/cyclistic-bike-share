@@ -49,15 +49,73 @@ create table jan22_tripdata as (select * from may21_tripdata) with no data;
 create table feb22_tripdata as (select * from may21_tripdata) with no data;
 create table mar22_tripdata as (select * from may21_tripdata) with no data;
 create table apr22_tripdata as (select * from may21_tripdata) with no data;
+```
 
 ```TSQL
 -- Importing data to the tables created 
 
 COPY may21_tripdata
-FROM '/Users/dilyswoo/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
+FROM '/Users/xxxx/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
 DELIMITER ',' 
 CSV HEADER; 
 
+COPY jun21_tripdata
+FROM '/Users/xxxx/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
+DELIMITER ',' 
+CSV HEADER; 
+
+COPY jul21_tripdata
+FROM '/Users/xxxx/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
+DELIMITER ',' 
+CSV HEADER; 
+
+COPY aug21_tripdata
+FROM '/Users/xxxx/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
+DELIMITER ',' 
+CSV HEADER; 
+
+COPY sep21_tripdata
+FROM '/Users/xxxx/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
+DELIMITER ',' 
+CSV HEADER; 
+
+COPY oct21_tripdata
+FROM '/Users/xxxx/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
+DELIMITER ',' 
+CSV HEADER; 
+
+COPY nov21_tripdata
+FROM '/Users/xxxx/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
+DELIMITER ',' 
+CSV HEADER; 
+
+COPY dec21_tripdata
+FROM '/Users/xxxx/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
+DELIMITER ',' 
+CSV HEADER;
+
+COPY jan22_tripdata
+FROM '/Users/xxxx/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
+DELIMITER ',' 
+CSV HEADER;
+
+COPY feb22_tripdata
+FROM '/Users/xxxx/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
+DELIMITER ',' 
+CSV HEADER; 
+
+COPY mar22_tripdata
+FROM '/Users/xxxx/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
+DELIMITER ',' 
+CSV HEADER;
+
+COPY apr22_tripdata
+FROM '/Users/xxxx/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
+DELIMITER ',' 
+CSV HEADER; 
+
+
+```TSQL
 -- Creating a new table to merge all the monthly data into one table 
 
 CREATE TABLE all_trips
@@ -137,6 +195,14 @@ INSERT INTO all_trips (
 	from apr22_tripdata
 	)
 	
+```
+
+
+## Processing of Data
+
+I will be adding columns to calculate additional information including ride length and day of week for each individual ride. 
+
+```TSQL
 -- adding a new column to calculate the ride length in minutes
 ALTER TABLE all_trips 
 ADD ride_length int
@@ -151,9 +217,11 @@ ADD day_of_week varchar
 UPDATE all_trips
 SET day_of_week = TO_CHAR(started_at, 'Day')
 
-select *
-from all_trips
-limit 5
+```
+
+```TSQL
+
+I will be cleaning the data by removing rows consisting of NULL values 
 
 -- cleaning up data with NULL values
 DELETE FROM all_trips
@@ -162,5 +230,8 @@ start_station_name IS NULL OR
 member_casual IS NULL OR
 ride_length IS NULL OR
 ride_length = 0
+
+```
+## Analyzing of Data
 
 
