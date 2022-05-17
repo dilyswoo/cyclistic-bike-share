@@ -113,7 +113,7 @@ COPY apr22_tripdata
 FROM '/Users/xxxx/Desktop/Divvy/CSV/202105-divvy-tripdata.csv' 
 DELIMITER ',' 
 CSV HEADER; 
-
+```
 
 ```TSQL
 -- Creating a new table to merge all the monthly data into one table 
@@ -219,10 +219,9 @@ SET day_of_week = TO_CHAR(started_at, 'Day')
 
 ```
 
-```TSQL
-
 I will be cleaning the data by removing rows consisting of NULL values 
 
+```TSQL
 -- cleaning up data with NULL values
 DELETE FROM all_trips
 WHERE ride_id IS NULL OR
