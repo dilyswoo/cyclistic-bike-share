@@ -242,7 +242,7 @@ SELECT member_casual,
 FROM all_trips
 GROUP BY member_casual 
 ```
-Result:
+Data Output:
 | member_casual | membership | percentage_of_membership |
 |---------------|------------|--------------------------|
 | casual        | 2161152    | 44                       |
@@ -259,7 +259,7 @@ FROM all_trips
 GROUP BY month_of_ride
 ORDER BY TO_DATE(month_of_ride, 'Month')
 ```
-Result:
+Data Output:
 | month_of_ride | num_of_users | num_of_members | num_of_casual |
 |---------------|--------------|----------------|---------------|
 | January       | 86237        | 71800          | 14437         |
@@ -275,5 +275,89 @@ Result:
 | November      | 280401       | 199531         | 80870         |
 | December      | 193694       | 141391         | 52303         |
 
+```TSQL
+-- To find out the number of riders by day of week and membership
+
+SELECT day_of_week, 
+		COUNT(*) as num_of_users,
+		COUNT(*) FILTER (WHERE member_casual = 'member') as num_of_members,
+		COUNT(*) FILTER (WHERE member_casual = 'casual') as num_of_casual
+FROM all_trips 
+GROUP BY day_of_week
+```
+Data Output:
+| day_of_week | num_of_users | num_of_members | num_of_casual |
+|-------------|--------------|----------------|---------------|
+| Friday      | 683255       | 380962         | 302293        |
+| Monday      | 622004       | 378423         | 243581        |
+| Saturday    | 860739       | 373438         | 487301        |
+| Sunday      | 742875       | 327091         | 415784        |
+| Thursday    | 661898       | 412340         | 249558        |
+| Tuesday     | 649940       | 425227         | 224713        |
+| Wednesday   | 670996       | 433074         | 237922        |
+
+```TSQL
+-- To find out the average length for each ride by day of week and membership
+
+SELECT day_of_week,
+		AVG(ride_length) as avg_length_users,
+		AVG(ride_length) FILTER (WHERE member_casual = 'member') as avg_length_members,
+		AVG(ride_length) FILTER (WHERE member_casual = 'casual') as avg_length_casual
+FROM all_trips
+GROUP BY day_of_week
+
+```
+Data Output:
+| day_of_week | avg_length_users | avg_length_members | avg_length_casual |
+|-------------|------------------|--------------------|-------------------|
+| Friday      | 14.2741187       | 11.5876964         | 17.659658         |
+| Monday      | 14.1831885       | 11.4688669         | 18.4001092        |
+| Saturday    | 16.8758811       | 13.2005822         | 19.6924078        |
+| Sunday      | 17.1786101       | 13.4127598         | 20.1411478        |
+| Thursday    | 13.3232658       | 11.2764345         | 16.7052068        |
+| Tuesday     | 13.0580161       | 11.1246134         | 16.7166163        |
+| Wednesday   | 13.2840777       | 11.3561724         | 16.7933188        |
 
 
+```TSQL
+
+-- Top find out the most popular ride type by membership
+
+SELECT rideable_type, 
+		COUNT(*) as num_of_users,
+		COUNT(*) FILTER (WHERE member_casual = 'member') as num_of_members,
+		COUNT(*) FILTER (WHERE member_casual = 'casual') as num_of_casual
+FROM all_trips
+GROUP BY rideable_type
+
+```
+Data Output:
+| rideable_type | num_of_users | num_of_members | num_of_casual |
+|---------------|--------------|----------------|---------------|
+| classic_bike  | 3156681      | 1938824        | 1217857       |
+| docked_bike   | 287506       | 0              | 287506        |
+| electric_bike | 1447520      | 791731         | 655789        |
+
+```TSQL
+-- To find out the top 10 most popular start station
+
+SELECT start_station_name, count(*) as num_of_users
+FROM all_trips 
+GROUP BY start_station_name
+ORDER BY count(*) DESC
+LIMIT 10
+```
+
+Data Output:
+| start_station_name       | num_of_users |
+|--------------------------|--------------|
+| Streeter Dr & Grand Ave  | 82994        |
+| Wells St & Concord Ln    | 43184        |
+| Michigan Ave & Oak St    | 42599        |
+| Millennium Park          | 40887        |
+| Clark St & Elm St        | 40323        |
+| Wells St & Elm St        | 37047        |
+| Kingsbury St & Kinzie St | 35192        |
+| Theater on the Lake      | 34926        |
+| Wabash Ave & Grand Ave   | 32694        |
+| Clark St & Lincoln Ave   | 32289        |
