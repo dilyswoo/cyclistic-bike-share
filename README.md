@@ -235,6 +235,7 @@ ride_length = 0
 
 ```TSQL
 -- To find out how many members vs casual rider are there
+
 SELECT member_casual,
 	COUNT(*) as membership,
 	ROUND(COUNT(*) * 100/ (SELECT COUNT(*) FROM all_trips),2) as percentage_of_membership
@@ -244,5 +245,35 @@ GROUP BY member_casual
 Result:
 | member_casual | membership | percentage_of_membership |
 |---------------|------------|--------------------------|
-| "casual"      | 2161152    | 44                       |
-| "member"      | 2730555    | 55                       |
+| casual        | 2161152    | 44                       |
+| member        | 2730555    | 55                       |
+
+```TSQL
+-- To find out the number of riders by month and membership 
+
+SELECT month_of_ride,
+		COUNT(*) as num_of_users,
+		COUNT(*) FILTER (WHERE member_casual = 'member') as num_of_members,
+		COUNT(*) FILTER (WHERE member_casual = 'casual') as num_of_casual
+FROM all_trips 
+GROUP BY month_of_ride
+ORDER BY TO_DATE(month_of_ride, 'Month')
+```
+Result:
+| month_of_ride | num_of_users | num_of_members | num_of_casual |
+|---------------|--------------|----------------|---------------|
+| January       | 86237        | 71800          | 14437         |
+| February      | 95292        | 78179          | 17113         |
+| March         | 232983       | 158776         | 74207         |
+| April         | 295305       | 193496         | 101809        |
+| May           | 470437       | 242707         | 227730        |
+| June          | 639194       | 316425         | 322769        |
+| July          | 723912       | 335055         | 388857        |
+| August        | 705636       | 345144         | 360492        |
+| September     | 653506       | 341532         | 311974        |
+| October       | 515110       | 306519         | 208591        |
+| November      | 280401       | 199531         | 80870         |
+| December      | 193694       | 141391         | 52303         |
+
+
+
