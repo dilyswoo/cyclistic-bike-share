@@ -233,4 +233,16 @@ ride_length = 0
 ```
 ## Analyzing of Data
 
-
+```TSQL
+-- To find out how many members vs casual rider are there
+SELECT member_casual,
+	COUNT(*) as membership,
+	ROUND(COUNT(*) * 100/ (SELECT COUNT(*) FROM all_trips),2) as percentage_of_membership
+FROM all_trips
+GROUP BY member_casual 
+```
+Result:
+| member_casual | membership | percentage_of_membership |
+|---------------|------------|--------------------------|
+| "casual"      | 2161152    | 44                       |
+| "member"      | 2730555    | 55                       |
