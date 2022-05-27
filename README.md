@@ -361,3 +361,54 @@ Data Output:
 | Theater on the Lake      | 34926        |
 | Wabash Ave & Grand Ave   | 32694        |
 | Clark St & Lincoln Ave   | 32289        |
+
+## Visualisations on Tableau
+Visualisations have been created to share my key findings in the differences in behaviour between casual and member riders. Full dashboard can be found [here](https://public.tableau.com/views/Divvy_16526959743440/DivvyDashboard?:language=en-GB&publish=yes&:display_count=n&:origin=viz_share_link)
+
+**# of Riders by Month**
+
+The trend for both casual and member riders are quite consistent with a peak in riders during the May to August period. While, there is a huge dip in riders during the November to January period. 
+
+This can be caused by the change in seasonailty where most people are more willing to ride during the Summer period, hence promotion to entice any form of sign-ups should be considered during that period. 
+
+![Monthly Riders](https://github.com/dilyswoo/cyclistic-bike-share/blob/51a9fb6db2a9c809439907bed6132b5c8602efe8/tableau-visualisations/Monthly_Riders.png)
+
+**# of Riders by Day of Week**
+
+There are more member riders during weekdays as compared to the weekends, while there is an inverse relationship for casual riders, as there are more riders during weekend than weekday.
+
+This can be due to the member riders are using the bicycle to commute to work hence the decrease in activity during the weekend.
+
+![Weekly_Riders](https://github.com/dilyswoo/cyclistic-bike-share/blob/51a9fb6db2a9c809439907bed6132b5c8602efe8/tableau-visualisations/Weekly_Riders.png)
+
+**Average ride length by Day of Week**
+
+Casual riders have a longer ride length than member riders through out the week. However, both member and casual riders have a longer ride during the weekend. 
+
+![ride_length](https://github.com/dilyswoo/cyclistic-bike-share/blob/51a9fb6db2a9c809439907bed6132b5c8602efe8/tableau-visualisations/Ride_length.png)
+
+**# of Riders by Rideable Type**
+
+Both casual and member riders uses classic bike the most while member riders does not use docked bike at all.
+
+![ride_length](https://github.com/dilyswoo/cyclistic-bike-share/blob/51a9fb6db2a9c809439907bed6132b5c8602efe8/tableau-visualisations/Ride_type.png)
+
+**Top 10 station**
+Streeter Dr & Grand Ave is the most popular station amongst both casual and member riders. 
+
+![top10_station](https://github.com/dilyswoo/cyclistic-bike-share/blob/51a9fb6db2a9c809439907bed6132b5c8602efe8/tableau-visualisations/Top10_station.png)
+
+## Conclusion
+
+**Key Findings**
+- The trend for both casual and member riders are quite consistent with a peak in riders during the May to August period. While, there is a huge dip in riders during the November to January period. 
+- There are more member riders during weekdays as compared to the weekends, while there is an inverse relationship for casual riders, as there are more riders during weekend than weekday.
+-Casual riders have a longer ride length than member riders through out the week. However, both member and casual riders have a longer ride during the weekend. 
+-Both casual and member riders uses classic bike the most while member riders does not use docked bike at all.
+-Streeter Dr & Grand Ave is the most popular station amongst both casual and member riders. 
+
+**Key Recommendations**
+Below are some recommendations to support the key objective of converting casual riders into annual members
+- Summer is the most popular period for both casual and member riders, hence any marketing activities should be done during this period to encourage membership sales 
+- To run special promotion during the weekday period for casual members to encourage the use the service on weekday. This will help to raise awareness for the convenience of the service and encourage sign-ups as annual members 
+- Casual riders typically have a longer ride length than member riders, to provide a tier of membership that encourages longer rider length with exclusive discounts for casual members to sign up as members 
