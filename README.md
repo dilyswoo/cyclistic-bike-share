@@ -402,10 +402,10 @@ Streeter Dr & Grand Ave is the most popular station amongst both casual and memb
 
 **Key Findings**
 - The trend for both casual and member riders are quite consistent with a peak in riders during the May to August period. While, there is a huge dip in riders during the November to January period. 
--There are more member riders during weekdays as compared to the weekends, while there is an inverse relationship for casual riders, as there are more riders during weekend than weekday.
--Casual riders have a longer ride length than member riders through out the week. However, both member and casual riders have a longer ride during the weekend. 
--Both casual and member riders uses classic bike the most while member riders does not use docked bike at all.
--Streeter Dr & Grand Ave is the most popular station amongst both casual and member riders. 
+- There are more member riders during weekdays as compared to the weekends, while there is an inverse relationship for casual riders, as there are more riders during weekend than weekday.
+- Casual riders have a longer ride length than member riders through out the week. However, both member and casual riders have a longer ride during the weekend. 
+- Both casual and member riders uses classic bike the most while member riders does not use docked bike at all.
+- Streeter Dr & Grand Ave is the most popular station amongst both casual and member riders. 
 
 **Key Recommendations**
 
