@@ -14,7 +14,7 @@ For the purpose of this exercise I will be using Cyclistic’s historical trip d
 
 Each table consist of 13 columns and varying number of rows depending on each month’s rides data. 
 
-For the purpose of this exercise, I will be using PostgreSQL to process the dataset. Visualisations will be done via Tableau.
+For the purpose of this exercise, I will be using PostgreSQL to process the dataset. Visualisations will be done via Tableau, [link to dashboard here](https://public.tableau.com/views/Divvy_16526959743440/DivvyDashboard?:language=en-GB&publish=yes&:display_count=n&:origin=viz_share_link).
 
 ```TSQL
 -- Creating table to store the monthly data
