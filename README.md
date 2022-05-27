@@ -402,13 +402,15 @@ Streeter Dr & Grand Ave is the most popular station amongst both casual and memb
 
 **Key Findings**
 - The trend for both casual and member riders are quite consistent with a peak in riders during the May to August period. While, there is a huge dip in riders during the November to January period. 
-- There are more member riders during weekdays as compared to the weekends, while there is an inverse relationship for casual riders, as there are more riders during weekend than weekday.
+-There are more member riders during weekdays as compared to the weekends, while there is an inverse relationship for casual riders, as there are more riders during weekend than weekday.
 -Casual riders have a longer ride length than member riders through out the week. However, both member and casual riders have a longer ride during the weekend. 
 -Both casual and member riders uses classic bike the most while member riders does not use docked bike at all.
 -Streeter Dr & Grand Ave is the most popular station amongst both casual and member riders. 
 
 **Key Recommendations**
+
 Below are some recommendations to support the key objective of converting casual riders into annual members
+
 - Summer is the most popular period for both casual and member riders, hence any marketing activities should be done during this period to encourage membership sales 
 - To run special promotion during the weekday period for casual members to encourage the use the service on weekday. This will help to raise awareness for the convenience of the service and encourage sign-ups as annual members 
 - Casual riders typically have a longer ride length than member riders, to provide a tier of membership that encourages longer rider length with exclusive discounts for casual members to sign up as members 
